@@ -5,7 +5,7 @@ from ethereum.utils import privtoaddr, checksum_encode, sha3
 def generate_ethereum_addresses(n):
     addresses = []
     for _ in range(n):
-        key = sha3(os.urandom(4096))
+        key = sha3(os.urandom(32))
         address = checksum_encode(privtoaddr(key))
         private_key = key.hex()
         addresses.append([address, private_key])
